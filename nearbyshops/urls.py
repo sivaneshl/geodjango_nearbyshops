@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from shops import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # Use .as_view() to return a callable view that takes a request and returns a response,
+    # which can be passed as the second parameter for path() that maps paths to views.
+    path('', views.Home.as_view()),
 ]
